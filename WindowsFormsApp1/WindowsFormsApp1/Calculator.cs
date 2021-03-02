@@ -8,21 +8,21 @@ namespace WindowsFormsApp1
 {
     class Calculator
     {
-        static public long Sum(long first, long second)
+        static public double Sum(double first, double second)
         {
             return first + second;
         }
-        static public long Minus(long first, long second)
+        static public double Minus(double first, double second)
         {
             return first - second;
         }
-        static public long Multi(long first, long second)
+        static public double Multi(double first, double second)
         {
             return first * second;
         }
-        static public long Div(long first, long second)
+        static public double Div(double first, double second)
         {
-            long result;
+            double result;
             if (second == 0)
             {
                 result = 0;
@@ -33,13 +33,13 @@ namespace WindowsFormsApp1
             }
             return result;
         }
-        static public long Pow(long first, long second)
+        static public double Pow(double first, double second)
         {
-            return Convert.ToInt64(Math.Pow(first, second));
+            return Convert.ToDouble(Math.Pow(first, second));
         }
-        static public long Root(long first)
+        static public double Root(double first)
         {
-            return Convert.ToInt64(Math.Sqrt(first));
+            return Convert.ToDouble(Math.Sqrt(first));
         }
     }
 }
