@@ -304,9 +304,9 @@ namespace WindowsFormsApp1
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(222, 29);
+            this.textBox2.Location = new System.Drawing.Point(30, 29);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(122, 27);
+            this.textBox2.Size = new System.Drawing.Size(314, 27);
             this.textBox2.TabIndex = 28;
             // 
             // Form1
