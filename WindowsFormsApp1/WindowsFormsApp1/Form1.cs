@@ -12,10 +12,10 @@ namespace WindowsFormsApp1
 {
     public partial class Form1 : Form
     {
-        public long first = 0;
+        public double first = 0;
         public string sign = "0";
-        public long second = 0;
-        public long result = 0;
+        public double second = 0;
+        public double result = 0;
         public string member = "0";
         public string error = "0";
         public bool equel = true;
@@ -24,6 +24,7 @@ namespace WindowsFormsApp1
             InitializeComponent();
             textBox1.Text = "0";
         }
+        
         private void Add_text(string text)
         {
             textBox1.Text += text;
@@ -76,7 +77,7 @@ namespace WindowsFormsApp1
                     break;
             }
         }
-        private void Dobble_operation(string new_sign, long new_second)
+        private void Dobble_operation(string new_sign, double new_second)
         {
             equel = true;
             if (error == "Error")
@@ -90,7 +91,7 @@ namespace WindowsFormsApp1
             {
                 if (sign != "0")
                 {
-                    second = Convert.ToInt32(textBox1.Text);
+                    second = Convert.ToDouble(textBox1.Text);
                     Choose_sign();
                     first = result;
                     sign = new_sign;
@@ -103,7 +104,7 @@ namespace WindowsFormsApp1
                     textBox2.Clear();
                     sign = new_sign;
                     ///System.OverflowException
-                    first = Convert.ToInt64(textBox1.Text);
+                    first = Convert.ToDouble(textBox1.Text);
                     Add_text_2(textBox1.Text + sign);
                 }
                 textBox1.Text = "0";
@@ -185,22 +186,22 @@ namespace WindowsFormsApp1
 
         private void but_plus_Click(object sender, EventArgs e)
         {
-            Dobble_operation("+", Convert.ToInt64(textBox1.Text));
+            Dobble_operation("+", Convert.ToDouble(textBox1.Text));
         }
 
         private void but_minus_Click(object sender, EventArgs e)
         {
-            Dobble_operation("-", Convert.ToInt64(textBox1.Text)); 
+            Dobble_operation("-", Convert.ToDouble(textBox1.Text)); 
         }
 
         private void but_share_Click(object sender, EventArgs e)
         {
-            Dobble_operation("/", Convert.ToInt64(textBox1.Text));
+            Dobble_operation("/", Convert.ToDouble(textBox1.Text));
         }
 
         private void but_multi_Click(object sender, EventArgs e)
         {
-            Dobble_operation("*", Convert.ToInt64(textBox1.Text));
+            Dobble_operation("*", Convert.ToDouble(textBox1.Text));
         }
 
         private void but_sqrt_Click(object sender, EventArgs e)
@@ -208,7 +209,7 @@ namespace WindowsFormsApp1
             equel = true;
             if (sign != "0")
             {
-                second = Convert.ToInt32(textBox1.Text);
+                second = Convert.ToDouble(textBox1.Text);
                 Choose_sign();
                 if (error != "0")
                 {
@@ -229,7 +230,7 @@ namespace WindowsFormsApp1
                 textBox2.Clear();
                 sign = "\u221a";
                 ///System.OverflowException
-                first = Convert.ToInt64(textBox1.Text);
+                first = Convert.ToDouble(textBox1.Text);
                 Add_text_2(sign + textBox1.Text);
             }
             textBox1.Text = "0";
@@ -237,7 +238,7 @@ namespace WindowsFormsApp1
 
         private void but_row_Click(object sender, EventArgs e)
         {
-            Dobble_operation("^", Convert.ToInt64(textBox1.Text)); 
+            Dobble_operation("^", Convert.ToDouble(textBox1.Text)); 
         }
 
         private void but_c_Click(object sender, EventArgs e)
@@ -279,7 +280,7 @@ namespace WindowsFormsApp1
                 }
                 else
                 {
-                    second = Convert.ToInt64(textBox1.Text);
+                    second = Convert.ToDouble(textBox1.Text);
                     Choose_sign();
                     if (error != "0")
                     {
@@ -317,8 +318,17 @@ namespace WindowsFormsApp1
 
         private void but_del_Click(object sender, EventArgs e)
         {
-            int text = Convert.ToInt32(textBox1.Text) / 10;
-            textBox1.Text = Convert.ToString(text);   
+            string txt = textBox1.Text;
+            if (txt.Length > 0)
+            {
+                txt = txt.Substring(0, txt.Length - 1);
+                textBox1.Text = txt;
+            }
+            if(txt.Length == 0)
+            {
+                textBox1.Text = "0";
+            }
+             
         }
 
         private void To_zero()
