@@ -16,9 +16,11 @@ namespace WindowsFormsApp1
         public string sign = "0";
         public double second = 0;
         public double result = 0;
+        public double tomember = 0;
         public string member = "0";
         public string error = "0";
         public bool equel = true;
+        public bool comma = true;
         public Form1()
         {
             InitializeComponent();
@@ -76,9 +78,11 @@ namespace WindowsFormsApp1
                     result = Calculator.Pow(first, second);
                     break;
             }
+            tomember = result;
         }
         private void Dobble_operation(string new_sign, double new_second)
         {
+            comma = true;
             equel = true;
             if (error == "Error")
             {
@@ -91,7 +95,7 @@ namespace WindowsFormsApp1
             {
                 if (sign != "0")
                 {
-                    second = Convert.ToDouble(textBox1.Text);
+                    second = Convert.ToDouble(End_with_comma());
                     Choose_sign();
                     first = result;
                     sign = new_sign;
@@ -104,8 +108,8 @@ namespace WindowsFormsApp1
                     textBox2.Clear();
                     sign = new_sign;
                     ///System.OverflowException
-                    first = Convert.ToDouble(textBox1.Text);
-                    Add_text_2(textBox1.Text + sign);
+                    first = Convert.ToDouble(End_with_comma());
+                    Add_text_2(End_with_comma() + sign);
                 }
                 textBox1.Text = "0";
             }  
@@ -186,30 +190,31 @@ namespace WindowsFormsApp1
 
         private void but_plus_Click(object sender, EventArgs e)
         {
-            Dobble_operation("+", Convert.ToDouble(textBox1.Text));
+            Dobble_operation("+", Convert.ToDouble(End_with_comma()));
         }
 
         private void but_minus_Click(object sender, EventArgs e)
         {
-            Dobble_operation("-", Convert.ToDouble(textBox1.Text)); 
+            Dobble_operation("-", Convert.ToDouble(End_with_comma())); 
         }
 
         private void but_share_Click(object sender, EventArgs e)
         {
-            Dobble_operation("/", Convert.ToDouble(textBox1.Text));
+            Dobble_operation("/", Convert.ToDouble(End_with_comma()));
         }
 
         private void but_multi_Click(object sender, EventArgs e)
         {
-            Dobble_operation("*", Convert.ToDouble(textBox1.Text));
+            Dobble_operation("*", Convert.ToDouble(End_with_comma()));
         }
 
         private void but_sqrt_Click(object sender, EventArgs e)
         {
+            comma = true;
             equel = true;
             if (sign != "0")
             {
-                second = Convert.ToDouble(textBox1.Text);
+                second = Convert.ToDouble(End_with_comma());
                 Choose_sign();
                 if (error != "0")
                 {
@@ -230,7 +235,7 @@ namespace WindowsFormsApp1
                 textBox2.Clear();
                 sign = "\u221a";
                 ///System.OverflowException
-                first = Convert.ToDouble(textBox1.Text);
+                first = Convert.ToDouble(End_with_comma());
                 Add_text_2(sign + textBox1.Text);
             }
             textBox1.Text = "0";
@@ -245,16 +250,13 @@ namespace WindowsFormsApp1
         {
             textBox1.Text = "0";
             textBox2.Text = "0";
-            first = 0;
-            second = 0;
-            result = 0;
-            sign = "0";
-            error = "0";
+            To_zero();
+
         }
 
         private void but_mk_Click(object sender, EventArgs e)
         {
-            member = Convert.ToString(result);
+            member = Convert.ToString(tomember);
         }
 
         private void but_m_Click(object sender, EventArgs e)
@@ -304,6 +306,7 @@ namespace WindowsFormsApp1
                         first = result;
                         second = 0;
                         sign = "0";
+                        tomember = result;
                         result = 0;
                     }
                 }   
@@ -338,6 +341,35 @@ namespace WindowsFormsApp1
             result = 0;
             sign = "0";
             error = "0";
-        } 
+            comma = true;
+        }
+
+        private void but_comma_Click(object sender, EventArgs e)
+        {
+            if (comma) {
+                Add_text(",");
+                comma = false;
+            }
+            
+        }
+        private string End_with_comma()
+        {
+            var txt = textBox1.Text;
+            int j = txt.Length - 1;
+            if (txt[j] == ',')
+            {
+                txt = txt.Substring(0, txt.Length - 1);
+            }
+            return txt;
+        }
+
+        private void Pressed_1(object sender, KeyPressEventArgs e)
+        {
+            char number = e.KeyChar;
+            if (number <= 46 || number >= 58)
+            {
+                e.Handled = true;
+            }
+        }
     }
 }
