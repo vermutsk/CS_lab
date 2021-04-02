@@ -41,7 +41,7 @@ namespace Flad2
 
         private void mouseUp(object sender, MouseEventArgs e)
         {
-            this.MouseMove -= mouseMove;
+            //this.MouseMove -= mouseMove;
             this.drawPanel.MouseMove -= mouseMove;
             // timer1.Start();
         }
@@ -71,12 +71,18 @@ namespace Flad2
             }
         }
 
-        private void DrawFlag(Point startCoord, Point endCoord)
+        void Show(string message)
         {
             line_counter += 1;
-            logBox.Text += String.Format("{0}: DrawFlag({1}, {2}, {3})\r\n", line_counter, startCoord, endCoord, isCreated);
+            logBox.Text += String.Format("{0}: {1}\r\n", line_counter, message);
             logBox.SelectionStart = logBox.Text.Length;
             logBox.ScrollToCaret();
+
+        }
+
+        private void DrawFlag(Point startCoord, Point endCoord)
+        {
+            Show(String.Format("DrawFlag({0}, {1}, {2})", startCoord, endCoord, isCreated));
             if (!isCreated)
             {
                 return;
@@ -86,6 +92,20 @@ namespace Flad2
             {
                 List<Color> colors = new List<Color>()
                 { Color.Red, Color.Orange, Color.Yellow, Color.Green, Color.LightBlue, Color.Blue, Color.Violet };
+
+                Show(String.Format("{0}:{1}", colors.Count, polygons.Length));
+                /*foreach (var item in colors)
+                {
+                    Show(String.Format("{0}", item.Name));
+                }*/
+                /*foreach (var row in polygons)
+                {
+                    foreach (var polygons in row)
+                    {
+                            Show(String.Format("{0}", polygons[0]));
+                    }
+                }*/
+
 
                 foreach (Color i in colors)
                 {
