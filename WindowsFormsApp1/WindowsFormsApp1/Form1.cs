@@ -77,6 +77,9 @@ namespace WindowsFormsApp1
                 case "^":
                     result = Calculator.Pow(first, second);
                     break;
+                case "sin":
+                    result = Calculator.Sin(first);
+                    break;
             }
             tomember = result;
         }
@@ -370,6 +373,11 @@ namespace WindowsFormsApp1
             {
                 e.Handled = true;
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Dobble_operation("sin", Convert.ToDouble(textBox1.Text));
         }
     }
 }
