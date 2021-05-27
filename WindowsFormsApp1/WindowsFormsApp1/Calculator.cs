@@ -41,5 +41,9 @@ namespace WindowsFormsApp1
         {
             return Convert.ToDouble(Math.Sqrt(first));
         }
+        static public double Sin(double first)
+        {
+            return Convert.ToDouble(Math.Sin(first));
+        }
     }
 }
