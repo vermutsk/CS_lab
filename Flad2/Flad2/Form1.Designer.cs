@@ -59,6 +59,7 @@ namespace Flad2
             this.Controls.Add(this.drawPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CreateYourFlag";
             this.ResumeLayout(false);
 
