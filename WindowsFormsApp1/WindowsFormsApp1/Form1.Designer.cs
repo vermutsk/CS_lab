@@ -56,6 +56,7 @@ namespace WindowsFormsApp1
             this.but_mk = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.but_comma = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // but2
@@ -171,9 +172,9 @@ namespace WindowsFormsApp1
             this.but0.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.but0.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.but0.ForeColor = System.Drawing.Color.OliveDrab;
-            this.but0.Location = new System.Drawing.Point(30, 322);
+            this.but0.Location = new System.Drawing.Point(94, 322);
             this.but0.Name = "but0";
-            this.but0.Size = new System.Drawing.Size(122, 46);
+            this.but0.Size = new System.Drawing.Size(58, 46);
             this.but0.TabIndex = 9;
             this.but0.Text = "0";
             this.but0.UseVisualStyleBackColor = false;
@@ -420,12 +421,26 @@ namespace WindowsFormsApp1
             this.but_comma.UseVisualStyleBackColor = false;
             this.but_comma.Click += new System.EventHandler(this.but_comma_Click);
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Black;
+            this.button1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button1.ForeColor = System.Drawing.Color.OliveDrab;
+            this.button1.Location = new System.Drawing.Point(41, 322);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(47, 45);
+            this.button1.TabIndex = 30;
+            this.button1.Text = "sin";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(378, 418);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.but_comma);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.but_mk);
@@ -488,6 +503,7 @@ namespace WindowsFormsApp1
         private System.Windows.Forms.Button but_mk;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Button but_comma;
+        private System.Windows.Forms.Button button1;
     }
 }
 
