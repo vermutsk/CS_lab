@@ -17,7 +17,6 @@ namespace Flad2
         private int animationValue;
         PointF[][][] polygons = new PointF[7][][];
         bool isCreated = false;
-        private int new_sdvig = 0;
 
         public Form1()
         {
@@ -30,7 +29,6 @@ namespace Flad2
         private void AnimationTimerOn(object sender, EventArgs e)
         {
             animationValue += 1;
-            new_sdvig += 5;
             CalculateFlag();
             this.drawPanel.Refresh();
         }
@@ -115,7 +113,7 @@ namespace Flad2
             polygon[2] = new PointF[size];
             for(int i = 0; i<size; i++)
             {
-                polygon[0][i].X = startCoord.X+ new_sdvig + (lenWight * i)/size;
+                polygon[0][i].X = startCoord.X + (lenWight * i)/size;
                 polygon[0][i].Y = startY + ((float)Math.Sin(i / 20f + animationValue)) * 30;
                 polygon[2][size - 1 - i].X = polygon[0][i].X;
                 polygon[2][size - 1 - i].Y = polygon[0][i].Y + lenHeight;
