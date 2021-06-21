@@ -76,13 +76,13 @@ namespace Unique
             polygon[0].X = width * i;
             polygon[0].Y = beginY;
 
-            polygon[3].X = polygon[0].X + width;
+            polygon[3].X = polygon[0].X + width-10;
             polygon[3].Y = beginY;
 
             polygon[1].X = polygon[0].X;
             polygon[1].Y = beginY - Value;
 
-            polygon[2].X = polygon[0].X + width;
+            polygon[2].X = polygon[0].X + width-10;
             polygon[2].Y = polygon[1].Y;
 
             return polygon;
