@@ -35,8 +35,6 @@ namespace Unique
         {
             try
             {
-                
-                //сделать еще ниже....................................................
                 beginY = panel1.ClientSize.Height / 5 * 4;
                 buildmax = Convert.ToInt32(beginY * 0.9);
                 f1.dataGridView1.AllowUserToAddRows = false;
@@ -91,7 +89,7 @@ namespace Unique
         {
             Graphics formGraphics;
             formGraphics = panel1.CreateGraphics();
-            SolidBrush brush = new SolidBrush(Color.DarkSeaGreen);
+            SolidBrush brush = new SolidBrush(Color.Red);
             GraphicsPath path = new GraphicsPath();
             path.AddLine(polygon[0], polygon[1]);
             path.AddLine(polygon[1], polygon[2]);
