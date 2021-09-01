@@ -13,10 +13,6 @@ namespace Unique
 {
     public partial class Form1 : Form
     {
-        //List<Tuple<string, string>> data; 
-        //Tuple<string, string> tempdata;
-        //int one;
-        //Form2 form2;
         public Form1()
         {
             InitializeComponent();
@@ -26,7 +22,6 @@ namespace Unique
             Graphic.Click += Graphing;
             try
             {
-                
                 TextFieldParser parser = new TextFieldParser("D:\\cs\\CS_lab\\Graphics\\Options.txt");
                 parser.TextFieldType = FieldType.Delimited;
                 parser.SetDelimiters("\t");
@@ -239,7 +234,6 @@ namespace Unique
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
         }
     }
 }
